@@ -1,11 +1,11 @@
-import React from "react";
-import ApolloClient from "apollo-boost";
-import { ApolloProvider } from "react-apollo";
-import Home from "./src/Home";
-import WorldCup from "./src/WorldCup";
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import React from 'react';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+import Home from './src/Home';
+import WorldCup from './src/WorldCup';
 const client = new ApolloClient({
-  uri: "https://worldcup-2018.now.sh"
+  uri: 'https://worldcup-2018.now.sh',
 });
 
 export default class App extends React.Component {
@@ -21,10 +21,10 @@ export default class App extends React.Component {
 const AppNavigator = createStackNavigator(
   {
     Home,
-    WorldCup
+    WorldCup,
   },
   {
-    initialRouteName: "Home"
+    initialRouteName: 'Home',
   }
 );
 const Nav = createAppContainer(AppNavigator);

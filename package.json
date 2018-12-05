@@ -5,7 +5,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "eject": "expo eject",
-    "lint": "tslint src/**/*.ts",
+    "lint": "eslint *.js src/*.js",
     "clean": "rimraf build",
     "build": "yarn run clean && yarn run tsc ",
     "watch": "yarn run build -w"
@@ -23,7 +23,15 @@
     "react-navigation": "^3.0.4"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.0.0"
+    "babel-preset-expo": "^5.0.0",
+    "eslint": "^5.9.0",
+    "eslint-config-universe": "^1.0.7",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-react-native": "^3.5.0",
+    "prettier": "^1.15.3"
+  },
+  "eslintConfig": {
+    "extends": "universe/native"
   },
   "private": true
 }

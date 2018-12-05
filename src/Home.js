@@ -1,18 +1,12 @@
-import React, { Component } from "react";
-import {
-  StyleSheet,
-  Text,
-  ScrollView,
-  Image,
-  ActivityIndicator
-} from "react-native";
-import { List } from "react-native-paper";
-import { Query } from "react-apollo";
-import { getAllWorldCups } from "./api";
-import { convertIocCode } from "convert-country-codes";
+import React, { Component } from 'react';
+import { Text, ScrollView, Image, ActivityIndicator } from 'react-native';
+import { List } from 'react-native-paper';
+import { Query } from 'react-apollo';
+import { convertIocCode } from 'convert-country-codes';
+import { getAllWorldCups } from './api';
 export default class Home extends Component {
   static navigationOptions = {
-    title: "Choose the World Cup"
+    title: 'Choose the World Cup',
   };
 
   getFlag = code => {
@@ -23,11 +17,10 @@ export default class Home extends Component {
 
   render() {
     return (
-      <ScrollView>
+      <ScrollView style={{ flex: 1 }}>
         <Query query={getAllWorldCups}>
           {({ loading, error, data }) => {
-            if (loading)
-              return <ActivityIndicator size="large" color="#0000ff" />;
+            if (loading) return <ActivityIndicator size="large" color="#0000ff" />;
             if (error) return <Text>Error :(</Text>;
             return (
               <List.Section title="World Cups">
@@ -36,14 +29,12 @@ export default class Home extends Component {
                     <List.Item
                       key={`match${key}`}
                       title={name}
-                      onPress={() =>
-                        this.props.navigation.navigate("WorldCup", { year })
-                      }
+                      onPress={() => this.props.navigation.navigate('WorldCup', { year })}
                       right={() => (
                         <Image
                           style={{ width: 50, height: 50 }}
                           source={{
-                            uri: this.getFlag(host[0].code)
+                            uri: this.getFlag(host[0].code),
                           }}
                         />
                       )}
@@ -58,11 +49,3 @@ export default class Home extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: 20,
-    alignSelf: "center"
-  }
-});
