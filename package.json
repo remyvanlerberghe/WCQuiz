@@ -5,10 +5,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "eject": "expo eject",
-    "lint": "eslint *.js src/*.js",
-    "clean": "rimraf build",
-    "build": "yarn run clean && yarn run tsc ",
-    "watch": "yarn run build -w"
+    "lint": "eslint --max-warnings 5 *.js src/*.js"
   },
   "dependencies": {
     "@types/react-navigation": "^2.13.7",
@@ -28,10 +25,16 @@
     "eslint-config-universe": "^1.0.7",
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-react-native": "^3.5.0",
+    "husky": "^1.2.0",
     "prettier": "^1.15.3"
   },
   "eslintConfig": {
     "extends": "universe/native"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint"
+    }
   },
   "private": true
 }
