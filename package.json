@@ -1,0 +1,29 @@
+{
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "eject": "expo eject",
+    "lint": "tslint src/**/*.ts",
+    "clean": "rimraf build",
+    "build": "yarn run clean && yarn run tsc ",
+    "watch": "yarn run build -w"
+  },
+  "dependencies": {
+    "@types/react-navigation": "^2.13.7",
+    "apollo-boost": "^0.1.22",
+    "convert-country-codes": "^1.0.0",
+    "expo": "^31.0.2",
+    "graphql": "^14.0.2",
+    "react": "16.5.0",
+    "react-apollo": "^2.3.2",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
+    "react-native-paper": "^2.2.8",
+    "react-navigation": "^3.0.4"
+  },
+  "devDependencies": {
+    "babel-preset-expo": "^5.0.0"
+  },
+  "private": true
+}
